@@ -5,7 +5,6 @@ import java.util.Set;
 
 import org.junit.internal.TextListener;
 import org.junit.runner.JUnitCore;
-import org.junit.runner.Result;
 
 /**
  * TestManager is simply a centralized way to manage tests and to
@@ -39,8 +38,7 @@ public final class TestManager {
 		JUnitCore junit = new JUnitCore();
 		junit.addListener(new TextListener(System.out));
 		
-		for(Class<?> c : testdeps)
-			junit.run(c);
+		junit.run(testdeps.toArray(new Class<?>[] {}));
 		
 	}
 }
