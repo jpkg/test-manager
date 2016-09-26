@@ -1,0 +1,2 @@
+dependencies=junit4-bin
+output-jar=bin/tester-${branch}.jar
