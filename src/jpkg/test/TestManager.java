@@ -3,7 +3,9 @@ package jpkg.test;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.junit.internal.TextListener;
 import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
 
 /**
  * TestManager is simply a centralized way to manage tests and to
@@ -35,7 +37,10 @@ public final class TestManager {
 	 */
 	public static final void runTests() {
 		JUnitCore junit = new JUnitCore();
+		junit.addListener(new TextListener(System.out));
+		
 		for(Class<?> c : testdeps)
 			junit.run(c);
+		
 	}
 }
